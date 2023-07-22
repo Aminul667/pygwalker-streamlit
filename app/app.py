@@ -10,13 +10,13 @@ st.set_page_config(
 )
 
 # Add Title
-st.title("Use Pygwalker In Streamlit")
+# st.title("Use Pygwalker In Streamlit")
 
 # Import your data
-df = pd.read_csv("app/data/airbnb.csv")
+df = pd.read_csv("https://raw.githubusercontent.com/mwaskom/seaborn-data/master/tips.csv")
 
 # Generate the HTML using Pygwalker
-pyg_html = pyg.walk(df, return_html=True)
+pyg_html = pyg.walk(df, return_html=True, env='Streamlit', dark="dark")
 
 # Embed the HTML into the Streamlit app
-components.html(pyg_html, height=1000, scrolling=True)
+components.html(pyg_html, height=1000, scrolling=False)
